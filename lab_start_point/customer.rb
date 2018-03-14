@@ -10,6 +10,7 @@ class Customer
 
   def pay(price)
     @wallet -= price
+    @wallet = 0 if @wallet < 0
   end
 
   def enough_money?(price)
