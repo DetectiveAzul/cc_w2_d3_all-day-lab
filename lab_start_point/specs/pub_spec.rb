@@ -6,13 +6,13 @@ require_relative '../drink'
 
 class PubTest < Minitest::Test
   def setup
-    vodka = Drink.new("Absolut Vodka", 4)
-    tennent = Drink.new("Tennent's", 3)
-    gin = Drink.new("Hendrik's", 5)
+    vodka = Drink.new("Absolut Vodka", 4, 2.5)
+    tennent = Drink.new("Tennent's", 3, 1.0)
+    gin = Drink.new("Hendrik's", 5, 2.5)
 
     drink_array = [vodka, tennent, gin]
 
-    @malones = Pub.new("Malone's", drink_array, 0)
+    @malones = Pub.new("Malone's",5, drink_array, 0)
   end
 
   def test_getters

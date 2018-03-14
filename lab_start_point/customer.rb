@@ -1,10 +1,11 @@
 class Customer
-  attr_reader :name, :age
+  attr_reader :name, :age, :drunkeness
   attr_accessor :wallet
-  def initialize(name, age, wallet=0)
+  def initialize(name, age, wallet=0, drunkeness=0)
     @name = name
     @age = age
     @wallet = wallet
+    @drunkeness = drunkeness
   end
 
   def pay(price)
@@ -20,6 +21,11 @@ class Customer
     if drink != nil && enough_money?(drink.price)
       pay(drink.price)
       pub.add_money(drink.price)
+      add_drunkeness(drink)
     end
+  end
+
+  def add_drunkeness(drink)
+    @drunkeness += drink.alcohol_level
   end
 end
