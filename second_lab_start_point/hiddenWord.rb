@@ -1,12 +1,6 @@
-require 'minitest/autorun'
-require 'minitest/rg'
-require_relative '../game'
-
-class HiddenWordTest < Minitest::Test
-  def setup
+class HiddenWord
+  attr_reader :word
+  def initialize(word)
+    @word = word
   end
-
-  def test_
-  end
-
 end

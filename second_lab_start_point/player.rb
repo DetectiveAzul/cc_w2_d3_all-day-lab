@@ -1,12 +1,8 @@
-require 'minitest/autorun'
-require 'minitest/rg'
-require_relative '../player'
-
-class PlayerTest < Minitest::Test
-  def setup
+class Player
+  attr_reader :name
+  attr_accessor :lives
+  def initialize(name, lives=6)
+    @name = name
+    @lives = lives
   end
-
-  def test_
-  end
-
 end
