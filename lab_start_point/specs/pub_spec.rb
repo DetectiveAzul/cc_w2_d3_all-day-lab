@@ -72,4 +72,15 @@ class PubTest < Minitest::Test
     @malones.drinks.last.remove_stock(1)
     assert_equal(false,@malones.enough_drinks?(@malones.drinks.last))
   end
+
+  def test_get_stock_of_a_drink
+    result = @malones.get_stock_of_drink("Hendrik's")
+    assert_equal(1, result)
+  end
+
+  def test_get_stock_of_all_drinks
+    result = @malones.get_stock_of_all_drinks
+    assert_equal(16, result)
+  end
+  
 end

@@ -38,4 +38,17 @@ class Pub
     return true if drink.stock_amount > 0
     return false
   end
+
+  def get_stock_of_drink(drink_name)
+    drink = get_drink_by_name(drink_name)
+    return drink.stock_amount
+  end
+
+  def get_stock_of_all_drinks()
+    total = 0
+    for drink in @drinks
+      total += drink.stock_amount
+    end
+    return total
+  end
 end
