@@ -9,11 +9,12 @@ class Pub
     @tolerance_level = tolerance_level
   end
 
-  # def has_drink?(drink_name)
-  #   for drink in @drinks
-  #     return true if drink_name == drink.name
-  #   end
-  # end
+  def has_drink?(drink_name)
+    for drink in @drinks
+      return true if drink_name == drink.name
+    end
+    return nil
+  end
 
   def get_drink_by_name(drink_name)
     for drink in @drinks

@@ -32,13 +32,13 @@ class PubTest < Minitest::Test
     assert_equal(100, @malones.till)
   end
 
-  # def test_has_drink__return_true
-  #   assert_equal(true, @malones.has_drink?("Absolut Vodka"))
-  # end
-  #
-  # def test_has_drink__return_false
-  #   assert_equal(true, @malones.has_drink?("Absolut Vodka"))
-  # end
+  def test_has_drink__return_true
+    assert_equal(true, @malones.has_drink?("Absolut Vodka"))
+  end
+
+  def test_has_drink__return_false
+    assert_equal(true, @malones.has_drink?("Absolut Vodka"))
+  end
 
   def test_get_drink_by_name
     drink = @malones.get_drink_by_name("Absolut Vodka")
