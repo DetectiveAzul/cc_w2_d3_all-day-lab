@@ -13,7 +13,7 @@ class PlayerTest < Minitest::Test
   end
 
   def test_setters
-    @player.lives -= 1
+    @player.lose_life()
     assert_equal(5, @player.lives)
   end
 end
