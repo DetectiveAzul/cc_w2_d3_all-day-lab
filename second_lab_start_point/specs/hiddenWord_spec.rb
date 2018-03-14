@@ -12,13 +12,13 @@ class HiddenWordTest < Minitest::Test
   end
 
   def test_display__no_letters
-    assert_equal("********",@hidden_word.display)
+    guessed_letters = []
+    assert_equal("********",@hidden_word.display(guessed_letters))
   end
 
   def test_display__some_correct_letters
-    @hidden_word.correct_letters << "o"
-    @hidden_word.correct_letters << "c"
-    assert_equal("co**c***",@hidden_word.display)
+    guessed_letters = ["o", "c"]
+    assert_equal("co**c***",@hidden_word.display(guessed_letters))
   end
 
   def test_is_letter_correct__returns_true

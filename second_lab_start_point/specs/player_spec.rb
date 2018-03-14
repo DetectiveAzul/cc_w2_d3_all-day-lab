@@ -16,4 +16,5 @@ class PlayerTest < Minitest::Test
     @player.lose_life()
     assert_equal(5, @player.lives)
   end
+    
 end
