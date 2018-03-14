@@ -29,7 +29,21 @@ class Customer
     end
   end
 
+  def buy_food(pub, food_name)
+    food = pub.get_food_by_name(food_name)
+    if food != nil && enough_money?(food.price)
+      pay(food.price)
+      pub.add_money(food.price)
+      remove_drunkeness(food)
+    end
+  end
+
   def add_drunkeness(drink)
     @drunkeness += drink.alcohol_level
+  end
+
+  def remove_drunkeness(food)
+    @drunkeness -= food.rejuvenation_level
+    @drunkeness = 0 if @drunkeness < 0
   end
 end

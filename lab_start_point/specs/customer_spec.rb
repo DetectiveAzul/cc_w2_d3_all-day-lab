@@ -68,4 +68,29 @@ class CustomerTest < Minitest::Test
     @jaime.buy(@malones, "Hendrik's")
     assert_equal(10, @jaime.wallet)
   end
+
+  def test_buying_food
+    @jaime.buy_food(@malones,"Burguer")
+    assert_equal(5, @jaime.wallet)
+    assert_equal(10, @malones.till)
+  end
+
+  def test_buying_food__not_found
+    @jaime.buy_food(@malones,"Burrito")
+    assert_equal(15, @jaime.wallet)
+    assert_equal(0, @malones.till)
+  end
+
+  def test_buying_food__not_enough_money
+    @sev.buy_food(@malones,"Burguer")
+    assert_equal(4, @sev.wallet)
+    assert_equal(0, @malones.till)
+  end
+
+  def test_drunkness_rejuvenation
+    @jaime.buy(@malones,"Absolut Vodka")
+    assert_equal(2.5, @jaime.drunkeness)
+    @jaime.buy_food(@malones, "Burguer")
+    assert_equal(0, @jaime.drunkeness)
+  end
 end

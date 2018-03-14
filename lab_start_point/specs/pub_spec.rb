@@ -87,4 +87,11 @@ class PubTest < Minitest::Test
     assert_equal(16, result)
   end
 
+  def test_get_food_by_name
+    assert_equal(@malones.foods.first,@malones.get_food_by_name("Burguer"))
+  end
+
+  def test_get_food_by_name__nil
+    assert_nil(@malones.get_food_by_name("Burritos"))
+  end
 end

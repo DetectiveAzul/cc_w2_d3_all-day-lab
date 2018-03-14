@@ -1,5 +1,5 @@
 class Pub
-  attr_reader :name, :drinks
+  attr_reader :name, :drinks, :foods
   attr_accessor :till, :tolerance_level
   def initialize(name, tolerance_level, drinks=[], foods=[], till=0)
     @name = name
@@ -19,6 +19,14 @@ class Pub
     for drink in @drinks
       return drink if drink.name == drink_name
     end
+    return nil
+  end
+
+  def get_food_by_name(food_name)
+    for food in @foods
+      return food if food.name == food_name
+    end
+    return nil
   end
 
   def add_money(drink_price)
