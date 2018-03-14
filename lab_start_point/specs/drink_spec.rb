@@ -4,9 +4,9 @@ require_relative '../drink'
 
 class DrinkTest < Minitest::Test
   def setup
-    @vodka = Drink.new("Absolut Vodka", 4, 2.5)
-    @tennent = Drink.new("Tennent's", 3, 1)
-    @gin = Drink.new("Hendrik's", 5, 2.5)
+    @vodka = Drink.new("Absolut Vodka", 4, 2.5, 5)
+    @tennent = Drink.new("Tennent's", 3, 1, 10)
+    @gin = Drink.new("Hendrik's", 5, 2.5, 1)
   end
 
   def test_getters()

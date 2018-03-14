@@ -17,6 +17,8 @@ class Customer
   end
 
   def buy(pub, drink_name)
+    return nil if pub.check_for_age?(self) == false
+    return nil if pub.check_for_drunkeness?(self) == true
     drink = pub.get_drink_by_name(drink_name)
     if drink != nil && enough_money?(drink.price)
       pay(drink.price)

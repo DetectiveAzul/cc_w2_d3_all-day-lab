@@ -10,9 +10,9 @@ class CustomerTest < Minitest::Test
     @aileen = Customer.new("Aileen", 26, 10)
     @sev = Customer.new("Sev", 17, 4)
 
-    vodka = Drink.new("Absolut Vodka", 4, 2.5)
-    tennent = Drink.new("Tennent's", 3, 1)
-    gin = Drink.new("Hendrik's", 5, 2.5)
+    vodka = Drink.new("Absolut Vodka", 4, 2.5, 5)
+    tennent = Drink.new("Tennent's", 3, 1, 10)
+    gin = Drink.new("Hendrik's", 5, 2.5, 1)
 
     drink_array = [vodka, tennent, gin]
 
@@ -45,5 +45,17 @@ class CustomerTest < Minitest::Test
     @jaime.buy(@malones, "Absolut Vodka")
     @jaime.buy(@malones, "Absolut Vodka")
     assert_equal(5.0, @jaime.drunkeness)
+  end
+
+  def test_buying_drinks_being_under_18
+    @sev.buy(@malones, "Absolut Vodka")
+    assert_equal(4, @sev.wallet)
+  end
+
+  def test_buying_drinks_being_over_drunk_tolerance_level
+    @jaime.buy(@malones, "Absolut Vodka")
+    @jaime.buy(@malones, "Absolut Vodka")
+    @jaime.buy(@malones, "Absolut Vodka")
+    assert_equal(7, @jaime.wallet)
   end
 end

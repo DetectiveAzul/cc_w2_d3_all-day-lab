@@ -24,4 +24,11 @@ class Pub
     @till += drink_price
   end
 
+  def check_for_age?(customer)
+    return customer.age >= 18
+  end
+
+  def check_for_drunkeness?(customer)
+    return customer.drunkeness >= @tolerance_level
+  end
 end

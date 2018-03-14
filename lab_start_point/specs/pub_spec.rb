@@ -2,17 +2,20 @@ require 'minitest/autorun'
 require 'minitest/rg'
 require_relative '../pub'
 require_relative '../drink'
+require_relative '../customer'
 
 
 class PubTest < Minitest::Test
   def setup
-    vodka = Drink.new("Absolut Vodka", 4, 2.5)
-    tennent = Drink.new("Tennent's", 3, 1.0)
-    gin = Drink.new("Hendrik's", 5, 2.5)
+    vodka = Drink.new("Absolut Vodka", 4, 2.5, 5)
+    tennent = Drink.new("Tennent's", 3, 1, 10)
+    gin = Drink.new("Hendrik's", 5, 2.5, 1)
 
     drink_array = [vodka, tennent, gin]
 
     @malones = Pub.new("Malone's",5, drink_array, 0)
+    @jaime = Customer.new("Jaime", 29, 15)
+    @sev = Customer.new("Sev", 17, 4)
   end
 
   def test_getters
@@ -42,4 +45,23 @@ class PubTest < Minitest::Test
     @malones.add_money(4)
     assert_equal(4, @malones.till)
   end
+
+  def test_check_for_age__returns_true
+    assert_equal(true,@malones.check_for_age?(@jaime))
+  end
+
+  def test_check_for_age__returns_false
+    assert_equal(false,@malones.check_for_age?(@sev))
+  end
+
+  def test_check_drunkeness__returns_true
+    @jaime.buy(@malones, "Absolut Vodka")
+    @jaime.buy(@malones, "Absolut Vodka")
+    assert_equal(true,@malones.check_for_drunkeness?(@jaime))
+  end
+
+  def test_check_drunkeness__returns_false
+    assert_equal(false,@malones.check_for_drunkeness?(@sev))
+  end
+
 end
