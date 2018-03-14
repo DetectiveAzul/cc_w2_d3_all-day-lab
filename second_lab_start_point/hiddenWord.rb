@@ -16,8 +16,8 @@ class HiddenWord
   def display(guessed_letter)
     display_array = []
     word.split('').each do |letter|
-      !guessed_letter.include?(letter) ? display_array.push("*")
-        : display_array.push(letter)
+      !guessed_letter.include?(letter) ? display_array.push("  *  ")
+        : display_array.push("  #{letter}  ")
     end
     return display_array.join()
   end
