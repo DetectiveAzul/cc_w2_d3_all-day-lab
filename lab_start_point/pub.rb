@@ -1,9 +1,10 @@
 class Pub
   attr_reader :name, :drinks
   attr_accessor :till, :tolerance_level
-  def initialize(name, tolerance_level, drinks=[], till=0)
+  def initialize(name, tolerance_level, drinks=[], foods=[], till=0)
     @name = name
     @drinks = drinks
+    @foods = foods
     @till = till
     @tolerance_level = tolerance_level
   end

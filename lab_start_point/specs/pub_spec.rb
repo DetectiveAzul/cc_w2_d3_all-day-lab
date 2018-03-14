@@ -3,6 +3,7 @@ require 'minitest/rg'
 require_relative '../pub'
 require_relative '../drink'
 require_relative '../customer'
+require_relative '../food'
 
 
 class PubTest < Minitest::Test
@@ -11,9 +12,12 @@ class PubTest < Minitest::Test
     tennent = Drink.new("Tennent's", 3, 1, 10)
     gin = Drink.new("Hendrik's", 5, 2.5, 1)
 
-    drink_array = [vodka, tennent, gin]
+    burguer = Food.new("Burguer", 10, 5)
 
-    @malones = Pub.new("Malone's",5, drink_array, 0)
+    drink_array = [vodka, tennent, gin]
+    food_array = [burguer]
+
+    @malones = Pub.new("Malone's",5, drink_array, food_array, 0)
     @jaime = Customer.new("Jaime", 29, 15)
     @sev = Customer.new("Sev", 17, 4)
   end
@@ -82,5 +86,5 @@ class PubTest < Minitest::Test
     result = @malones.get_stock_of_all_drinks
     assert_equal(16, result)
   end
-  
+
 end

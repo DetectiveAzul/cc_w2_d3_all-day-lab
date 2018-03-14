@@ -3,6 +3,7 @@ require 'minitest/rg'
 require_relative '../customer'
 require_relative '../pub'
 require_relative '../drink'
+require_relative '../food'
 
 class CustomerTest < Minitest::Test
   def setup
@@ -14,9 +15,12 @@ class CustomerTest < Minitest::Test
     tennent = Drink.new("Tennent's", 3, 1, 10)
     gin = Drink.new("Hendrik's", 5, 2.5, 1)
 
-    drink_array = [vodka, tennent, gin]
+    burguer = Food.new("Burguer", 10, 5)
 
-    @malones = Pub.new("Malone's", 5, drink_array, 0)
+    drink_array = [vodka, tennent, gin]
+    food_array = [burguer]
+
+    @malones = Pub.new("Malone's", 5, drink_array, food_array, 0)
   end
 
   def test_getters
