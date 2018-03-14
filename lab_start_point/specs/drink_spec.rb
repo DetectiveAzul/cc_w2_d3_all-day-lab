@@ -14,4 +14,14 @@ class DrinkTest < Minitest::Test
     assert_equal(5, @gin.price)
   end
 
+  def test_add_stock
+    @gin.add_stock(2)
+    assert_equal(3, @gin.stock_amount)
+  end
+
+  def test_remove_stock
+    @gin.remove_stock(1)
+    assert_equal(0, @gin.stock_amount)
+  end
+
 end

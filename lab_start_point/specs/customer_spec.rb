@@ -58,4 +58,10 @@ class CustomerTest < Minitest::Test
     @jaime.buy(@malones, "Absolut Vodka")
     assert_equal(7, @jaime.wallet)
   end
+
+  def test_buying_drinks_not_enough_stock
+    @jaime.buy(@malones, "Hendrik's")
+    @jaime.buy(@malones, "Hendrik's")
+    assert_equal(10, @jaime.wallet)
+  end
 end

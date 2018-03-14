@@ -21,8 +21,9 @@ class Customer
     return nil if pub.check_for_age?(self) == false
     return nil if pub.check_for_drunkeness?(self) == true
     drink = pub.get_drink_by_name(drink_name)
-    if drink != nil && enough_money?(drink.price)
+    if drink != nil && enough_money?(drink.price) && pub.enough_drinks?(drink)
       pay(drink.price)
+      drink.remove_stock(1)
       pub.add_money(drink.price)
       add_drunkeness(drink)
     end

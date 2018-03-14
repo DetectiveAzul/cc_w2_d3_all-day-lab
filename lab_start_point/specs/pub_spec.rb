@@ -64,4 +64,12 @@ class PubTest < Minitest::Test
     assert_equal(false,@malones.check_for_drunkeness?(@sev))
   end
 
+  def test_enough_drink__returns_true
+    assert_equal(true,@malones.enough_drinks?(@malones.drinks.first))
+  end
+
+  def test_enough_drink__returns_false
+    @malones.drinks.last.remove_stock(1)
+    assert_equal(false,@malones.enough_drinks?(@malones.drinks.last))
+  end
 end

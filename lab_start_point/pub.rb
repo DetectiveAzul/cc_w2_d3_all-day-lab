@@ -25,10 +25,17 @@ class Pub
   end
 
   def check_for_age?(customer)
-    return customer.age >= 18
+    return true if customer.age >= 18
+    return false
   end
 
   def check_for_drunkeness?(customer)
-    return customer.drunkeness >= @tolerance_level
+    return true if customer.drunkeness >= @tolerance_level
+    return false
+  end
+
+  def enough_drinks?(drink)
+    return true if drink.stock_amount > 0
+    return false
   end
 end
