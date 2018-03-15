@@ -25,7 +25,7 @@ class GameTest < Minitest::Test
   def test_make_a_guessing
     @game.make_a_guessing("a")
     assert_equal(1,@game.guessed_letters.count)
-    assert_equal("******a*",@game.hidden_word.display(@game.guessed_letters))
+    assert_equal("  *    *    *    *    *    *    a    *  ",@game.hidden_word.display(@game.guessed_letters))
   end
 
   def test_is_lost
