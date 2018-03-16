@@ -39,7 +39,7 @@ class GameTest < Minitest::Test
   end
 
   def test_is_won
-  @game.guessed_letters = "codeclan".split('').sort
+  @game.guessed_letters = "codeclan".split('').sort.uniq
   assert_equal(true,@game.is_won?())
   end
 

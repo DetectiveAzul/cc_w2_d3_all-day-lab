@@ -28,7 +28,7 @@ class Game
   end
 
   def is_won?()
-    array_to_check = @hidden_word.word.split('').sort
+    array_to_check = @hidden_word.word.split('').sort.uniq
     return true if @guessed_letters.sort == array_to_check
     return false
   end
